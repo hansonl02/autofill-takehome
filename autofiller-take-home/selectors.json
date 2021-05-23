@@ -1,0 +1,19 @@
+{
+  "[name='job_application[first_name]']": "first_name",
+  "[name='job_application[last_name]']": "last_name",
+  "[name='job_application[email]']": "email",
+  "[name='job_application[phone]']": "phone",
+  "[name='job_application[location]']": "location",
+  "[name='job_application[educations][][school_name_id]']": "school",
+  "[name='job_application[educations][][degree_id]']": "degree",
+  "[name='job_application[educations][][discipline_id]']": "discipline",
+  "[name='job_application[educations][][start_date][month]']": "start_month",
+  "[name='job_application[educations][][start_date][year]']": "start_year",
+  "[name='job_application[educations][][end_date][month]']": "end_month",
+  "[name='job_application[educations][][end_date][year]']": "end_year",
+  "[name='job_application[gender]']": "gender",
+  "[name='job_application[hispanic_ethnicity]']": "hispanic_ethnicity",
+  "[name='job_application[race]']": "race",
+  "[name='job_application[veteran_status]']": "veteran",
+  "[name='job_application[disability_status]']": "disability"
+}

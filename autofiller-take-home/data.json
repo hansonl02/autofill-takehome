@@ -1,0 +1,19 @@
+{
+  "first_name": "Hanson",
+  "last_name": "Li",
+  "email": "test@simplify.jobs",
+  "phone": "1234567890",
+  "resume": "https://storage.googleapis.com/simplify-resume-bucket/resumes/resume.pdf",
+  "school": "Stanford University",
+  "degree": "Bachelor's Degree",
+  "discipline": "Computer Science",
+  "start_month": "9",
+  "start_year": "2020",
+  "end_month": "6",
+  "end_year": "2024",
+  "gender": "Male",
+  "hispanic_ethnicity": "No",
+  "race": "asian",
+  "veteran": "I am not a protected veteran",
+  "disability": "No, I don't have a disability, or a history/record of having a disability"
+}
