@@ -31,6 +31,7 @@ async function fillBoard() {
   /* For each selector on the greenhouse form mapped in selectors.json, identify
    * if it is a basic text input or a dropdown, then fill accordingly */
 
+  let dropdowns = [];
   for (let selector in selectors) {
     const inputElement = $(selector);
     if (inputElement.length) {
@@ -40,10 +41,10 @@ async function fillBoard() {
       inputElement.each(element => {
         if (inputElement[element].tagName === 'SELECT') {
           $(`${selector} option:contains("${inputValue}")`).attr("selected", true);
+          // dropdowns.push(inputData);
           // TODO: figure out how to actually set the selected value
           /* I attempted to trigger a 'change' event as several online sources
            * have suggested but it doesn't seem to work */
-          // $(selector).val(inputValue);
           // $(selector).trigger('change');
         } else {
           $(selector).val(inputValue).change();
@@ -52,9 +53,22 @@ async function fillBoard() {
     }
   }
 
+  for (let selector in dropdowns) {
+    console.log(selector);
+    const inputElement = $(selector);
+    inputElement.focus();
+    var e = jQuery.Event("keydown");
+    e.which = 13;
+    e.key = 13;
+    inputElement.trigger(e);
+  }
+
   // TODO: figure out entire file download/upload process
   // https://stackoverflow.com/questions/13333378/how-can-javascript-upload-a-blob
-  /* fetch(`https://example.com/upload.php`, {method:"POST", body:blobData})
-              .then(response => console.log(response.text())) */
-
-}
+  $.get(data.resume).then(function(resume) {
+    var blob = new Blob([resume], { type: 'pdf' });
+    var hidden_elem = document.getElementsByName("file");
+    console.log(document.getElementsByName("file"));
+    // hidden_elem.value = blob;
+  });
+};
