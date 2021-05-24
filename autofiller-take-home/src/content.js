@@ -31,7 +31,6 @@ async function fillBoard() {
   /* For each selector on the greenhouse form mapped in selectors.json, identify
    * if it is a basic text input or a dropdown, then fill accordingly */
 
-  let dropdowns = [];
   for (let selector in selectors) {
     const inputElement = $(selector);
     if (inputElement.length) {
@@ -41,34 +40,30 @@ async function fillBoard() {
       inputElement.each(element => {
         if (inputElement[element].tagName === 'SELECT') {
           $(`${selector} option:contains("${inputValue}")`).attr("selected", true);
-          // dropdowns.push(inputData);
           // TODO: figure out how to actually set the selected value
           /* I attempted to trigger a 'change' event as several online sources
-           * have suggested but it doesn't seem to work */
-          // $(selector).trigger('change');
+           * have suggested but it doesn't have the intended effect. Also
+           * have been playing around with select2. */
+          // var e = jQuery.Event("keydown");
+          // e.which = 13;
+          // e.keyCode = 13;
+          // $(selector).select2().trigger(e);
+          // $(selector).select2().trigger("select2:open");
+          $(selector).select2().trigger('change');
         } else {
           $(selector).val(inputValue).change();
         }
       });
     }
-  }
-
-  for (let selector in dropdowns) {
-    console.log(selector);
-    const inputElement = $(selector);
-    inputElement.focus();
-    var e = jQuery.Event("keydown");
-    e.which = 13;
-    e.key = 13;
-    inputElement.trigger(e);
+    // $("[name='job_application[educations][][degree_id]']").trigger("change");
+    // $("[name='job_application[educations][][degree_id]']").trigger('select');
   }
 
   // TODO: figure out entire file download/upload process
-  // https://stackoverflow.com/questions/13333378/how-can-javascript-upload-a-blob
+  // Error: No 'Access-Control-Allow-Origin' header is present on the requested resource.
   $.get(data.resume).then(function(resume) {
-    var blob = new Blob([resume], { type: 'pdf' });
-    var hidden_elem = document.getElementsByName("file");
-    console.log(document.getElementsByName("file"));
-    // hidden_elem.value = blob;
+    var blob = new Blob([resume], { type: 'application/pdf' });
+    var hidden_elem = document.getElementById("s3_upload_for_resume");
+    hidden_elem.value = blob;
   });
 };

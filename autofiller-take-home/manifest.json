@@ -19,6 +19,7 @@
   "background": {
     "scripts": [
       "/src/jquery-3.6.0.slim.min.js",
+      "/src/select2.js",
       "hot-reload.js"
     ]
   },
@@ -27,6 +28,7 @@
       "matches": ["*://boards.greenhouse.io/*"],
       "js": [
         "/src/jquery-3.6.0.slim.min.js",
+        "/src/select2.js",
         "/src/content.js"
       ],
       "run_at": "document_end"
