@@ -18,16 +18,16 @@
   "permissions": [],
   "background": {
     "scripts": [
-      "hot-reload.js",
-      "/src/jquery-3.6.0.slim.min.js"
+      "/src/jquery-3.6.0.slim.min.js",
+      "hot-reload.js"
     ]
   },
   "content_scripts": [
     {
       "matches": ["*://boards.greenhouse.io/*"],
       "js": [
-        "/src/content.js",
-        "/src/jquery-3.6.0.slim.min.js"
+        "/src/jquery-3.6.0.slim.min.js",
+        "/src/content.js"
       ],
       "run_at": "document_end"
     }
