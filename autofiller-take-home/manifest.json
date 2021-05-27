@@ -25,7 +25,10 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://boards.greenhouse.io/*"],
+      "matches": [
+        "*://boards.greenhouse.io/*",
+        "*://jobs.lever.co/*"          
+      ],
       "js": [
         "/src/jquery-3.6.0.slim.min.js",
         "/src/select2.js",
